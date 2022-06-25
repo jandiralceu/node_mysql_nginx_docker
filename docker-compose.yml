@@ -9,6 +9,7 @@ services:
     command: npm start
     volumes:
       - ./app:/usr/app
+      - /usr/app/node_modules
     ports:
       - '3000:3000'
     networks:

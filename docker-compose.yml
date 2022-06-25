@@ -10,8 +10,6 @@ services:
     volumes:
       - ./app:/usr/app
       - /usr/app/node_modules
-    ports:
-      - '3000:3000'
     networks:
       - fullstack
     tty: true
@@ -31,6 +29,17 @@ services:
       - MYSQL_ROOT_PASSWORD=root 
     networks:
       - fullstack
+  
+  nginx:
+    build:
+      context: nginx
+    container_name: nginx
+    networks:
+      - fullstack
+    ports:
+      - "8080:80"
+    depends_on:
+      - nodeapp
 
 networks:
   fullstack:

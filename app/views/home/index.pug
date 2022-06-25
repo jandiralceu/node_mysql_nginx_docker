@@ -1,0 +1,36 @@
+doctype html
+html
+    head 
+        meta(charset='UTF-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        script(src='https://cdn.tailwindcss.com')
+        title="FullCycle"
+        script.
+            tailwind.config = {
+                theme: {
+                    container: {
+                        center: true
+                    }
+                }
+            }
+    body.w-full
+        main.container.max-w-xl
+            section.mt-16 
+                h1.text-3xl.mb-10.font-bold="FullCycle Rocks!"
+            
+                if people.length
+                    table.w-full.text-lg
+                        thead
+                            tr.font-bold.text-left 
+                                th="#"
+                                th="ID"
+                                th="Person"
+                        tbody 
+                            each person, index in people
+                                tr
+                                    td.font-bold= index + 1
+                                    td= person.id
+                                    td= person.name
+                if error 
+                    p="Error or getting data. Please try again later." 
